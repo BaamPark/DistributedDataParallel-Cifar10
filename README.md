@@ -5,7 +5,7 @@ The provided Python script demonstrates how to set up and use DDP for training a
 
 Note: the scope of this project is training a model on local GPUs.
 
-## Code Explanation
+## Code Explanation `main.py`
 `def setup(rank, world_size)`: - Defines the setup function, which sets up the distributed environment for each process.
 
 - `os.environ['MASTER_ADDR'] = 'localhost'`: Sets the master node address to 'localhost'.
