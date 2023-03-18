@@ -5,3 +5,9 @@ The provided Python script demonstrates how to set up and use DDP for training a
 
 Note: the scope of this project is training a model on local GPUs.
 
+## 
+`def setup(rank, world_size)`: - Defines the setup function, which sets up the distributed environment for each process.
+
+- `os.environ['MASTER_ADDR'] = 'localhost'`: Sets the master node address to 'localhost'.
+- `os.environ['MASTER_PORT'] = '12355'`: Sets the master node port to '12355'.
+- `dist.init_process_group("nccl", rank=rank, world_size=world_size)`: Initializes the process group for communication using NCCL backend, and assigns the rank and world size to each process.
