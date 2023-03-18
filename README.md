@@ -19,3 +19,15 @@ model = NetResDeep().to(rank)
 model = DDP(model, device_ids=[rank], output_device=rank)
 ```
 - The images and labels are moved to the device (GPU) corresponding to the process rank.
+- wraps the original model with the Distributed Data Parallel (DDP) module that is a wrapper that helps parallelize model training across multiple GPUs
+
+
+`def main(rank, world_size)`: Defines the main function, which initializes the dataset, data loader, model, and distributed data parallel (DDP) wrapper, and calls the train_loop function
+- The `setup` function is called to set up the distributed environment.
+- `destroy_process_group()` is called to clean up the distributed environment after training.
+
+
+`if __name__ == '__main__'`: The main entry point of the script.
+- Checks if there are more than one GPU available, and prints the number of GPUs being used.
+- The `world_size` is set to the number of available GPUs.
+- The `mp.spawn` function is called to spawn `world_size` processes, each running the `main` function
