@@ -16,7 +16,7 @@ Note: the scope of this project is training a model on local GPUs.
 `def train_loop(model, train_loader, rank)`: Defines the train_loop function, which is the main training loop for each process.
 ```python
 model = NetResDeep().to(rank)
-model = DDP(model, device_ids=[rank], output_device=rank)
+model = DDP(model, device_ids=[rank], output_device=rank) aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 ```
 - The images and labels are moved to the device (GPU) corresponding to the process rank.
 - wraps the original model with the Distributed Data Parallel (DDP) module that is a wrapper that helps parallelize model training across multiple GPUs
